@@ -1,0 +1,143 @@
+body{
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background: #f4f4f4;
+}
+
+/* -----------Barra de Navegação -------------*/
+
+.nav-bar{
+    background: #22c081;
+    padding: 8px;
+    text-align: center;
+    margin: auto;
+
+}
+.logo{
+    padding: 6px 10px;
+    color: #4e4e4e;
+    font-size: 1.5em;
+    
+}
+.menu{
+    padding: 10px;
+
+}
+a{
+    text-decoration: none;
+}
+
+.nav-bar a:link, .navbar a:visited{
+    color: aliceblue;
+    padding: 8px 12px;
+}
+.nav-bar a:hover {
+    background: aliceblue;
+    color: #22c081;
+}
+/* -----------Fim da Barra de Navegação -------------*/
+
+/* -----------Carousel -------------*/
+.carousel-container{
+    margin: 0 auto;
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    justify-content: center;
+}
+.carousel{
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    margin: 0 auto;
+    justify-content: flex-start;
+    align-items: center;
+}
+.carousel-item{
+    flex-shrink: 0;
+    width: 100%;
+    text-align: center;
+    background-color: #f4f4f4;
+    padding: 10px 0px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    margin: 0px auto;
+}
+.carousel-item img{
+    width: 100%;
+    margin: 0px auto;
+    /* max-width: 900px; */
+    height: 300px;
+    object-fit: cover;
+    display: block;
+
+}
+
+@media (min-width: 1080px){
+    .carousel-item img{
+        width: 65%;
+        border-radius: 5px;
+    }
+}
+@media (max-width: 768px){
+    .carousel-item{
+        
+        font-size: 1rem;
+    }
+    .carousel-item img{
+        border-radius: 5px;
+    }
+}
+
+@media (max-width: 480px){
+    .carousel-item{
+        font-size: 0.8rem;
+    }
+}
+
+/* -----------Fim do Carousel -------------*/
+
+.products-container{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+}
+
+.product{
+    width: 300px;
+    margin: 10px;
+    padding: 10px;
+    background: #fff;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    border-radius: 5px;
+    text-align: center;
+    float: inline-end;
+
+}
+.product img{
+    width: 5em;
+    height: 10em;
+    object-fit: cover;
+    border-radius: 5px;
+}
+.title{
+    clear: both;
+    margin: auto 5px;
+    color: #fff;
+    background-color: #22c081;
+    padding: 25px;
+}
+
+.footer{
+    background: #22c081;
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
