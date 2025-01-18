@@ -1,26 +1,47 @@
-const productContainer = document.querySelector('.products');
-const productsItens = document.querySelectorAll('.product');
+class Carousel {
+    constructor(container, products, prevBtn, nextBtn, itemWidth = 300){
+        this.container = document.querySelector(container);
+        this.products = document.querySelectorAll(products);
+        this.prevBtn = document.querySelector(prevBtn);
+        this.nextBtn = document.querySelector(nextBtn);
+        this.itemWidth = itemWidth;
+        this.currentIndex = 0;
+        this.itemCount = this.products.length;
 
-let currentIndex = 0;
-const itemWidth = 300;
-const itemCount = productsItens.length;
+        this.init();
+    }
 
-function moveCarousel(){
-    document.querySelector('.prev-btn').addEventListener('click', () => {
-        currentIndex = (currentIndex - 1 + itemCount) % itemCount;
-        updateCarousel();      
-    });
-    document.querySelector('.next-btn').addEventListener('click', () => {
-        currentIndex = (currentIndex + 1) % itemCount;
-        updateCarousel();
-        
-    });
+    init(){
+        this.prevBtn.addEventListener('click', () => this.movePrev());
+        this.nextBtn.addEventListener('click', () => this.moveNext());
+        this.updateCarousel();
+    }
+
+    movePrev(){
+        this.currentIndex = (this.currentIndex - 1 + this.itemCount) % this.itemCount;
+        this.updateCarousel();
+    }
+
+    moveNext(){
+        this.currentIndex = (this.currentIndex + 1) % this.itemCount;
+        this.updateCarousel();
+    }
+
+    updateCarousel(){
+        const offset = -this.currentIndex * this.itemWidth;
+        this.container.style.transform = `translateX(${offset}px)`;
+    }
 }
 
-function updateCarousel(){
-
-    const offset = -currentIndex * itemWidth;
-    productContainer.style.transform = `translateX(${-currentIndex * itemWidth}px)`;
-}
-
-moveCarousel();
+const promotionsCarousel = new Carousel(
+    '.promotions-container .products',
+    '.promotions-container .product',
+    '.promotions-container .prev-btn',
+    '.promotions-container .next-btn'
+)
+const productsCarousel = new Carousel(
+    '.products-container .products',
+    '.products-container .product',
+    '.products-container .prev-btn',
+    '.products-container .next-btn'
+)
