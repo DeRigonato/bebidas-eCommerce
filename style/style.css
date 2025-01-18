@@ -29,7 +29,7 @@ a{
     text-decoration: none;
 }
 
-.nav-bar a:link, .navbar a:visited{
+.nav-bar a:link, .nav-bar a:visited{
     color: aliceblue;
     padding: 8px 12px;
 }
@@ -173,7 +173,7 @@ a{
     margin: 10px;
 }
 
-.footer{
+footer{
     background: #22c081;
     color: #fff;
     text-align: center;
