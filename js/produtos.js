@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", async function () {
-    const produtosContainer = document.getElementById("produtos");
+    const produtosContainer = document.getElementById("produtos"); // Ponto de inserção
 
     try {
         const response = await fetch('http://localhost/loja-bebidas/backend/produtosController.php');
@@ -11,18 +11,19 @@ document.addEventListener("DOMContentLoaded", async function () {
 
         produtos.forEach(produto => {
             const produtoDiv = document.createElement("div");
-            produtoDiv.classList.add("produto");
+            produtoDiv.classList.add("Pproduct"); // Classe atualizada para cada produto
 
+            // Estrutura HTML de cada produto
             produtoDiv.innerHTML = `
                 <img src="${produto.imagem}" alt="${produto.nome}">
                 <h3>${produto.nome}</h3>
-                <p>${produto.descricao}</p>
                 <p>R$ ${parseFloat(produto.preco).toFixed(2)}</p>
+                <button class="btn-buy">Comprar</button>
             `;
 
-            produtosContainer.appendChild(produtoDiv);
+            produtosContainer.appendChild(produtoDiv); // Adiciona o produto ao container
         });
     } catch (error) {
-        produtosContainer.innerHTML = `<p>Erro: ${error.message}</p>`;
+        produtosContainer.innerHTML = `<p>Erro: ${error.message}</p>`; // Mostra o erro caso ocorra
     }
 });
