@@ -21,6 +21,11 @@ body{
     font-size: 1.5em;
     
 }
+.slogan{
+    color: #4e4e4e;
+    font-size: 1.2em;
+    padding: 6px 10px;
+}
 .menu{
     padding: 10px;
 
