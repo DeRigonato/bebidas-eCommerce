@@ -178,6 +178,9 @@ a{
     border-radius: 5px;
     margin: 10px;
 }
+.btn-buy:hover {
+    background-color: #1a8f63;
+}
 
 .Pproducts-container {
     display: flex;
