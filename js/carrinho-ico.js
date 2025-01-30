@@ -9,6 +9,7 @@ function adicionarAoCarrinho(produto){
             id: produto.id,
             nome: produto.nome,
             preco: parseFloat(produto.preco),
+            imagem: produto.imagem,
             quantidade: 1
         });
     }
@@ -16,11 +17,17 @@ function adicionarAoCarrinho(produto){
     localStorage.setItem("carrinho", JSON.stringify(carrinho));
     atualizarBotaoCarrinho();
 
-    alert("Produto adcionado ao carrinho!");
+    const notificacao = document.getElementById('notificacao');
+    notificacao.textContent = `${produto.nome} adicionado ao carrinho!`;
+    notificacao.style.display = 'block';
+    
+    setTimeout(() => {
+        notificacao.style.display = 'none';
+    }, 3000);
 }
 
 function atualizarBotaoCarrinho(){
-    const botaoCarrinho = document.getElementById("carrinho-btn");
+    const botaoCarrinho = document.getElementById("carrinho-img");
     const totalItens = carrinho.reduce((acc, item) => acc + item.quantidade, 0);
 
     if (totalItens > 0) {
