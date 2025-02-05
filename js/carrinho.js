@@ -102,4 +102,61 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
     exibirCarrinho();
+
+    const cepInput = document.getElementById('cep-destino');
+    const calcularFreteBtn = document.getElementById ('calcular-frete');
+    const opcoesFrete = document.getElementById('opcoes-frete');
+
+    calcularFreteBtn.addEventListener('click', async () => {
+        const cep = cepInput.ariaValueMax.replace(/\D/g, '');
+
+        if(!/\d{8}/.test(cep)){
+            alert('CEP inválido! Digite 8 números.');
+            return;
+        }
+
+        try{
+            calcularFreteBtn.disabled = true;
+            calcularFreteBtn.textContent = "Calculando...";
+
+            const response = await fetch("http://localhost/loja-bebidas/backend/calcular-frete.php", {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    cepDestino: cep,
+                })
+
+            });
+
+            if(!response.ok) throw new Error("Erro de requisição");
+
+            const opcoes = await response.json();
+            exibirOpcoesFrete(opcoes);
+            
+        } catch (error){
+            console.error('Erro:', error);
+            opcoesFreteDiv.innerHTML = `<p class="erro-frete"> Erro ao calcular frete: ${error.message}</p>`;
+
+        }finally {
+            calcularFreteBtn.disabled = false;
+            calcularFreteBtn.textContent = 'Calcular';
+        }
+    });
+
+    function exibirOpcoesFrete(opcoes){
+        opcoesFreteDiv.innerHTML = opcoes.map(opcao =>`
+            <div class="opcao-frete">
+                <h4>${opcao.company.name} - ${opcao.name}</h4>
+                <p>Prazo: Aproximadamente ${opcao.delivery_time} dias úteis</p>
+                <p>Valor: R$ ${parseFloat(opcao.price).toFixed(2)}</p>
+            </div>
+            `).join('');
+    }
+
+    cepInput.addEventListener('inmput', function(e){
+        this.value = this.value.replace(/\D/g, '');
+    });
+
 });

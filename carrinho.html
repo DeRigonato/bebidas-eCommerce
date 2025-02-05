@@ -35,6 +35,22 @@
         <p id="carrinho-vazio" style="display: none;">Seu carrinho está vazio.</p>
 
         <div ></div>
+        
+        <div class="frete-container">
+            <h3>Calcular Frete</h3>
+            <div class="frete-input">
+                <input 
+                    type="text" 
+                    id="cep-destino" 
+                    placeholder="Digite seu CEP"
+                    maxlength="8"
+                    pattern="\d{8}"
+                >
+                <button id="calcular-frete">Calcular</button>
+            </div>
+            <div id="opcoes-frete" class="opcoes-frete"></div>
+        </div>
+        
     </section>
     <script src="js/carrinho.js"></script>
 
