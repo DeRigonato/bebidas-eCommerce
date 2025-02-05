@@ -105,10 +105,10 @@ document.addEventListener("DOMContentLoaded", function() {
 
     const cepInput = document.getElementById('cep-destino');
     const calcularFreteBtn = document.getElementById ('calcular-frete');
-    const opcoesFrete = document.getElementById('opcoes-frete');
+    const opcoesFreteDiv = document.getElementById('opcoes-frete');
 
     calcularFreteBtn.addEventListener('click', async () => {
-        const cep = cepInput.ariaValueMax.replace(/\D/g, '');
+        const cep = cepInput.value.replace(/\D/g, '');
 
         if(!/\d{8}/.test(cep)){
             alert('CEP inválido! Digite 8 números.');
@@ -119,7 +119,7 @@ document.addEventListener("DOMContentLoaded", function() {
             calcularFreteBtn.disabled = true;
             calcularFreteBtn.textContent = "Calculando...";
 
-            const response = await fetch("http://localhost/loja-bebidas/backend/calcular-frete.php", {
+            const response = await fetch("/loja-bebidas/backend/calcular-frete.php", {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -155,7 +155,7 @@ document.addEventListener("DOMContentLoaded", function() {
             `).join('');
     }
 
-    cepInput.addEventListener('inmput', function(e){
+    cepInput.addEventListener('input', function(e){
         this.value = this.value.replace(/\D/g, '');
     });
 
