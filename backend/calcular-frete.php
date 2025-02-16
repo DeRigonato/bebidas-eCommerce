@@ -27,7 +27,7 @@ try{
         'headers' => [
             'Accept' => 'application/json',
 
-            'Authorization' => 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiI5NTYiLCJqdGkiOiIyZTllYTFiZWIwYWRkM2UyZWRkYzFiMDQzMzI4NmJhMTExMTU3ZTU0MWFlOWFhMTU2MjFiOTc5MjFiZTY4M2FhMDM4ZDlkZTRkZDdlOTU2NiIsImlhdCI6MTczNzgyNDY2MS44MjgwMTIsIm5iZiI6MTczNzgyNDY2MS44MjgwMTUsImV4cCI6MTc2OTM2MDY2MS44MTU2NDUsInN1YiI6IjllMGRkOWRiLTlmZjktNGUzMS04OTAwLTc0M2FlOGM2NTZkZCIsInNjb3BlcyI6WyJzaGlwcGluZy1jYWxjdWxhdGUiXX0.DBNJ9zAxXXfb7Kh3IAIv4JWfaPsOJjdeCFJpSawHLgerixVlGbkfJqZVeNNDovieZWqD2cWG08h6wV5KrvdsmEQGqQ4kbjXUB7X4cBTzXkPPySyYxPYRFtp0eYBXJLTCEHkD4X3N8PFaTyy33zWaXFqD8envCc5rEiebtLSEAisUjdH22k5xN5qH9-8DHesKBAybRH1rwYSVk9v0ErXkiP4tlrNdhkmA6S5MixXoXfEPHL8sPEBTzWWz2vhGTJQCWuYBPC-l234mEpg30J9f42HGdFAFtLnEP3SzfU1X2dDa2xfOvOBg_CUjqvPA19qiPVXEuV-8qIWCbV0XFd2z5LRASvYnRJRVGPBzxSgsZQKC-127dEMseY8pAyPBPp1w_-2aXxsTjavOJi3tCmq_3LiylviMKtVPIrDmeXVlVHes3jLRN8C4ia7tysT5WRAlwKDywptLHDjZaXrdTxnVR0-DiD7av1Ty_w0CQSUSxrvP7FkPKoDtxD3Gwf8ne5E0k8HRFSkbVlRkeEdJvgg1-FaxoniQOe2d0fcFNd06DxItUC2OfKcHz4eyJNJwOMxp4rsvZwrOmaXeKnfRCzFj6ZkmTWoQQMXYu4jM_YtmHHv4PmTjJObVxgdjAaD7l9hQGBTiR9xX0GcUQIsuiVhm0AFQP1dQiJJa1jf34yCDiTI',
+            'Authorization' => 'Bearer token',
 
             'Content-Type' => 'application/json',
             'User-Agent' => 'Aplicação (al.g.regonato@gmail.com)'
